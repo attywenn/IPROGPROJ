@@ -1,0 +1,13 @@
+C:\Users\Acer\source\repos\proj\x64\Debug\MySql.Data.dll
+C:\Users\Acer\source\repos\proj\x64\Debug\System.Memory.dll
+C:\Users\Acer\source\repos\proj\x64\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Acer\source\repos\proj\x64\Debug\System.Numerics.Vectors.dll
+C:\Users\Acer\source\repos\proj\x64\Debug\System.Buffers.dll
+C:\Users\Acer\source\repos\proj\x64\Debug\MySql.Data.xml
+C:\Users\Acer\source\repos\proj\proj\x64\Debug\proj.vcxproj.AssemblyReference.cache
+C:\Users\Acer\source\repos\proj\proj\x64\Debug\proj.gui.resources
+C:\Users\Acer\source\repos\proj\proj\x64\Debug\proj.vcxproj.GenerateResource.cache
+C:\Users\Acer\source\repos\proj\proj\x64\Debug\proj.vcxproj.Up2Date
+C:\Users\Acer\source\repos\proj\proj\x64\Debug\proj.Applicant.resources
+C:\Users\Acer\source\repos\proj\proj\x64\Debug\proj.Students.resources
+C:\Users\Acer\source\repos\proj\proj\x64\Debug\proj.Administrator.resources
