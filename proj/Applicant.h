@@ -238,6 +238,7 @@ namespace proj {
 			this->btnProceedApplicant->TabIndex = 13;
 			this->btnProceedApplicant->Text = L"Proceed";
 			this->btnProceedApplicant->UseVisualStyleBackColor = false;
+			this->btnProceedApplicant->Click += gcnew System::EventHandler(this, &Applicant::btnProceedApplicant_Click);
 			// 
 			// linkBTDApplicant
 			// 
@@ -288,11 +289,64 @@ namespace proj {
 		}
 #pragma endregion
 
+		String^ connString = "server=localhost;port=3306;database=dpshop;uid=root;password=Wency7425#";
+		MySqlConnection^ conn = gcnew MySqlConnection(connString);
+
 	private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 
 private: System::Void linkBTDApplicant_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
 	this->Close();
+}
+private: System::Void btnProceedApplicant_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+	String^ surname = tbLastName->Text;
+	String^ firstname = tbFirstName->Text;
+	String^ midname = tbMidIni->Text;
+	String^ ID = tbAppID->Text;
+	String^ concern = rtbConcern->Text;
+	String^ userRole = "Applicant";
+	bool isValid = true;
+
+	if (String::IsNullOrWhiteSpace(this->tbFirstName->Text)) {
+		isValid = false;
+		MessageBox::Show("First name cannot be empty!");
+	}
+	if (String::IsNullOrWhiteSpace(this->tbLastName->Text)) {
+		isValid = false;
+		MessageBox::Show("Last name cannot be empty!");
+	}
+	if (String::IsNullOrWhiteSpace(this->tbAppID->Text)) {
+		isValid = false;
+		MessageBox::Show("Applicant ID cannot be empty!");
+	}
+	if (String::IsNullOrWhiteSpace(this->rtbConcern->Text)) {
+		isValid = false;
+		MessageBox::Show("Concern must be filled!");
+	}
+	if (isValid) {
+		conn->Open();
+		String^ cmdString = "INSERT INTO concernForm (surname, firstname, midname, ID, concern, userRole) VALUES (@surname, @firstname, @midname, @ID, @concern, @userRole)";
+		MySqlCommand^ cmd = gcnew MySqlCommand(cmdString, conn);
+
+		cmd->Parameters->AddWithValue("@surname", surname);
+		cmd->Parameters->AddWithValue("@firstname", firstname);
+		cmd->Parameters->AddWithValue("@midname", midname);
+		cmd->Parameters->AddWithValue("@ID", ID);
+		cmd->Parameters->AddWithValue("@concern", concern);
+		cmd->Parameters->AddWithValue("@userRole", userRole);
+
+		try {
+			cmd->ExecuteNonQuery();
+			MessageBox::Show("Applicant " + ID + "'s concern has been successfully sent.");
+		}
+		catch (Exception^ e) {
+			MessageBox::Show("Failed submission!");
+		}
+		
+
+		conn->Close();
+	}
 }
 };
 }

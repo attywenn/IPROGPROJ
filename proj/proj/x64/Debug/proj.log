@@ -1,6 +1,14 @@
-﻿  AdminDashboard.cpp
-  Administrator.cpp
+﻿  Students.cpp
+C:\Users\Acer\source\repos\proj\Students.h(355,21): warning C4101: 'e': unreferenced local variable
+  (compiling source file 'Students.cpp')
+  
   gui.cpp
+C:\Users\Acer\source\repos\proj\Applicant.h(343,21): warning C4101: 'e': unreferenced local variable
+  (compiling source file 'gui.cpp')
+  
+C:\Users\Acer\source\repos\proj\Students.h(355,21): warning C4101: 'e': unreferenced local variable
+  (compiling source file 'gui.cpp')
+  
   Generating Code...
   AdminDashboard.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   proj.vcxproj -> C:\Users\Acer\source\repos\proj\x64\Debug\proj.exe

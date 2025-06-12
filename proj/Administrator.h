@@ -139,6 +139,7 @@ namespace proj {
 			this->tbUsername->Name = L"tbUsername";
 			this->tbUsername->Size = System::Drawing::Size(241, 29);
 			this->tbUsername->TabIndex = 30;
+			this->tbUsername->TextChanged += gcnew System::EventHandler(this, &Administrator::tbUsername_TextChanged);
 			// 
 			// panel1
 			// 
@@ -224,11 +225,17 @@ private: System::Void btnProceedStudent_Click(System::Object^ sender, System::Ev
 		this->Hide();
 		AdminDashboard^ adminDash = gcnew AdminDashboard();
 		adminDash->ShowDialog();
+		// Clear password and text inputs
+		tbUsername->Text = "";
+		tbPassword->Text = "";
 		this->Show();
+		// Clear password and text inputs
 	}
 	else {
 		MessageBox::Show("Incorrect Password", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 	}
+}
+private: System::Void tbUsername_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
